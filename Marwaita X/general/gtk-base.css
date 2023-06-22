@@ -2045,7 +2045,7 @@ messagedialog.csd .dialog-action-area button.destructive-action,
 .budgie-session-dialog .linked button,
 .budgie-polkit-dialog .linked button,
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button
-{ border-radius: 8.0px; }
+{ border-radius: 8.0px; margin: 0px 4px; }
 
 messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):first-child,
 messagedialog.csd .dialog-action-area button.suggested-action:first-child,
@@ -2053,7 +2053,7 @@ messagedialog.csd .dialog-action-area button.destructive-action:first-child,
 .budgie-session-dialog .linked button:first-child,
 .budgie-polkit-dialog .linked button:first-child,
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button:first-child
-{margin-right: 4px; }
+{ }
 
 messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):last-child,
 messagedialog.csd .dialog-action-area button.suggested-action:last-child,
@@ -2061,7 +2061,7 @@ messagedialog.csd .dialog-action-area button.destructive-action:last-child,
 .budgie-session-dialog .linked.horizontal button:last-child,
 .budgie-polkit-dialog .linked.horizontal button:last-child,
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button:last-child
-{ margin-left: 4px; }
+{ }
 
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button {}
 
