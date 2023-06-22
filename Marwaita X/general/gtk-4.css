@@ -935,11 +935,11 @@ scale.vertical.marks-after { padding-right: 0; }
 scrollbar > range > trough { margin: 0px; transition: all 200ms linear; background:none; }
 
 scrollbar > range > trough > slider {
-	min-width: 10px;
-	min-height: 10px;
-	margin: 0px;
+	min-width: 8px;
+	min-height: 8px;
+	margin: 6px;
 	border: none;
-	border-radius: 0px;
+	border-radius: 9999px;
 	background-clip: border-box;
 	transition: all 200ms linear;
 	background-color: mix(@window_bg_color,@window_fg_color,0.5);

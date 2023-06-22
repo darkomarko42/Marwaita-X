@@ -46,7 +46,7 @@
 
 @define-color accent_color #0f6ee3;
 
-@define-color button_bg_color @view_bg_color;
+@define-color button_bg_color alpha(currentcolor,0.15);
 
 @define-color headerbar_border_color @transparent_borders;
 @define-color headerbar_shade_color mix(@headerbar_bg_color,@transparent_borders,0.2);
@@ -199,13 +199,15 @@ textview > text:disabled { color: @insensitive_fg_color; }
 
 .gtkstyle-fallback { color: @window_fg_color; background-color: @window_bg_color; }
 
-.gtkstyle-fallback:hover { color: @window_fg_color; background-color: shade(@window_bg_color,1.1); }
+.gtkstyle-fallback:hover { color: @window_fg_color; background-color: mix(@window_bg_color,currentcolor,0.1); }
 
-.gtkstyle-fallback:active { color: @window_fg_color; background-color: shade(@window_bg_color,0.9); }
+.gtkstyle-fallback:active { color: @window_fg_color; background-color: mix(@window_bg_color,currentcolor,0.2); }
 
-.gtkstyle-fallback:disabled { color: @insensitive_fg_color; background-color: mix(@window_bg_color,@view_bg_color,0.4); }
+.gtkstyle-fallback:disabled { color: @insensitive_fg_color; background-color: mix(@window_bg_color,@view_bg_color,0.5); }
 
 .gtkstyle-fallback:selected { color: @accent_fg_color; background-color: @accent_bg_color; }
+
+button.gtkstyle-fallback {border-color: @transparent_borders;}
 
 textview border { background-color: @borders; }
 
@@ -231,7 +233,7 @@ label { caret-color: currentColor; }
 
 label selection { background-color: @accent_bg_color; color: @accent_fg_color; }
 
-label:disabled { color: @insensitive_fg_color; }
+label:disabled, image:disabled { color: @insensitive_fg_color; }
 
 button label:disabled { color: inherit; }
 
@@ -293,13 +295,20 @@ radio.view:checked:selected,
 check.view:checked:selected:focus,
 radio.view:checked:selected:focus { color: @accent_fg_color; background-color: @accent_bg_color; border-color: transparent; background-clip: border-box; }
 
-headerbar entry selection, .titlebar entry selection, .view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection, iconview:selected:focus, iconview:selected, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection, modelbutton.flat:selected, .menuitem.button.flat:selected, spinbutton:not(.vertical) selection, treeview.view:selected:focus, treeview.view:selected, calendar:selected,treeview.view:selected.chromium,
-treeview.view:selected:focus.chromium,selection,selection:focus-within,
-.thunar treeview.view:selected,.thunar treeview.view:selected:hover,.thunar treeview.view:selected:focus
-{ background-color: alpha(@accent_bg_color,0.15); }
+/* accent selections and others */
 
-label:selected, .selection-mode button.titlebutton, headerbar entry selection, .titlebar entry selection, .view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection, iconview:selected:focus, iconview:selected, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection, modelbutton.flat:selected, .menuitem.button.flat:selected, spinbutton:not(.vertical) selection, treeview.view:selected:focus, treeview.view:selected, calendar:selected,
-treeview.view:selected.chromium,treeview.view:selected:focus.chromium,selection,selection:focus-within,.thunar treeview.view:selected,.thunar treeview.view:selected:hover,.thunar treeview.view:selected:focus{ color: @window_fg_color; }
+headerbar entry selection, .titlebar entry selection,.view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection,iconview text selection:focus, iconview text selection, entry selection,spinbutton:not(.vertical) selection, selection,selection:focus-within
+{background-color: @accent_bg_color;}
+
+headerbar entry selection, .titlebar entry selection,.view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, textview text selection:focus, textview text selection, .view text selection:focus, .view text selection,iconview text selection:focus, iconview text selection,entry selection,spinbutton:not(.vertical) selection,selection,selection:focus-within
+{color: @accent_fg_color;}
+
+/* accent list and others */
+
+.view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, iconview:selected:focus, iconview:selected,  flowbox flowboxchild:selected, modelbutton.flat:selected, .menuitem.button.flat:selected, treeview.view:selected:focus, treeview.view:selected, calendar:selected,treeview.view:selected.chromium,treeview.view:selected:focus.chromium, .thunar treeview.view:selected,.thunar treeview.view:selected:hover,.thunar treeview.view:selected:focus
+{ background-color: mix(@view_bg_color,@accent_bg_color,0.2); }
+
+label:selected, .selection-mode button.titlebutton, .view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected,  iconview:selected:focus, iconview:selected, flowbox flowboxchild:selected, modelbutton.flat:selected, .menuitem.button.flat:selected,  treeview.view:selected:focus, treeview.view:selected, calendar:selected, treeview.view:selected.chromium, treeview.view:selected:focus.chromium,.thunar treeview.view:selected,.thunar treeview.view:selected:hover,.thunar treeview.view:selected:focus{ color: @window_fg_color; }
 
 row.activatable:selected,
 list.content > row:not(:selected).activatable.has-open-popup,
@@ -311,7 +320,7 @@ list.content > row:not(:selected).activatable:active,
 list.content > row.expander row.header:not(:selected).activatable:active,
 list.boxed-list > row:not(:selected).activatable:active,
 list.boxed-list > row.expander row.header:not(:selected).activatable:active,
-row.expander list.nested > row:not(:selected).activatable:active { background-color: alpha(@accent_bg_color,0.15); color: @window_fg_color; }
+row.expander list.nested > row:not(:selected).activatable:active { background-color: alpha(@accent_bg_color,0.2); color: @window_fg_color; }
 
 label:disabled selection, label:disabled:selected, .selection-mode button.titlebutton:disabled, .titlebar entry selection:disabled, .view:disabled:selected, .nautilus-window notebook:disabled:selected, .nautilus-window notebook > stack:disabled:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:disabled:selected, textview text:disabled:selected:focus, .view text:disabled:selected, textview text:disabled:selected, .view text selection:disabled, textview text selection:disabled:focus, textview text selection:disabled, iconview:disabled:selected:focus, iconview:disabled:selected, iconview text selection:disabled:focus, iconview text selection:disabled, flowbox flowboxchild:disabled:selected, entry selection:disabled, modelbutton.flat:disabled:selected, .menuitem.button.flat:disabled:selected, spinbutton:not(.vertical) selection:disabled, treeview.view:disabled:selected, calendar:disabled:selected { color: mix(@accent_fg_color,@accent_bg_color,0.5); }
 
@@ -384,14 +393,14 @@ scale .osd trough:disabled { background-color: alpha(currentcolor,0.5); }
 
 spinbutton:not(.vertical),
 entry{
-	background-clip: padding-box;
+	background-clip: border-box;
 	border: 1px solid;
 	border-radius: 8.0px;
-	transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	transition: all 150ms ease-in;
 	color: @view_fg_color;
-	border-color: @transparent_borders;
-	background-color: @view_bg_color;
-	box-shadow: inset 0 0 0 1px alpha(alpha(@accent_color,0.5),0);
+	border-color: transparent;
+	background-color: @button_bg_color;
+	box-shadow: none;
 	caret-color: currentcolor;
 	}
 
@@ -409,14 +418,12 @@ spinbutton:focus:not(.vertical),
 entry:focus{
 	box-shadow: inset 0 0 0 1px @accent_bg_color;
 	border-color: @accent_bg_color;
-	transition: 300ms ease-in-out;
-	transition-property: border, box-shadow;
 	}
 
 spinbutton:disabled:not(.vertical),
 entry:disabled {
 	color: @insensitive_fg_color;
-	background-color: transparent;
+	background-color: alpha(@button_bg_color,0.7);
 	}
 
 spinbutton.error:not(.vertical), entry.error { border-color: @error_bg_color; }
@@ -442,16 +449,17 @@ spinbutton:drop(active):not(.vertical), entry:drop(active):focus, entry:drop(act
 spinbutton:not(.vertical) progress, entry progress { background-color: transparent; background-image: none; border-radius: 0; border-width: 0 0 2px; border-color: @accent_bg_color; border-style: solid; box-shadow: none; }
 
 .linked:not(.vertical) > spinbutton:focus:not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:focus:not(.vertical) + button, .linked:not(.vertical) > spinbutton:focus:not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:focus:not(.vertical) + entry, .linked:not(.vertical) > entry:focus + button, .linked:not(.vertical) > entry:focus + combobox > box > button.combo, .linked:not(.vertical) > entry:focus + spinbutton:not(.vertical), .linked:not(.vertical) > entry:focus + entry,
-.linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + button, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + entry, .linked:not(.vertical) > entry:drop(active) + button, .linked:not(.vertical) > entry:drop(active) + combobox > box > button.combo, .linked:not(.vertical) > entry:drop(active) + spinbutton:not(.vertical), .linked:not(.vertical) > entry:drop(active) + entry { border-left-color: @accent_bg_color; }
+.linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + button, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + entry, .linked:not(.vertical) > entry:drop(active) + button, .linked:not(.vertical) > entry:drop(active) + combobox > box > button.combo, .linked:not(.vertical) > entry:drop(active) + spinbutton:not(.vertical), .linked:not(.vertical) > entry:drop(active) + entry,
 
-.linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + button, .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + entry, .linked:not(.vertical) > entry:focus.error + button, .linked:not(.vertical) > entry:focus.error + combobox > box > button.combo, .linked:not(.vertical) > entry:focus.error + spinbutton:not(.vertical), .linked:not(.vertical) > entry:focus.error + entry { border-left-color: @error_bg_color; }
+
+.linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + button, .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + entry, .linked:not(.vertical) > entry:focus.error + button, .linked:not(.vertical) > entry:focus.error + combobox > box > button.combo, .linked:not(.vertical) > entry:focus.error + spinbutton:not(.vertical), .linked:not(.vertical) > entry:focus.error + entry { }
 
 .linked.vertical > spinbutton:not(:disabled):not(.vertical) + entry:not(:disabled), .linked.vertical > spinbutton:not(:disabled):not(.vertical) + spinbutton:not(:disabled):not(.vertical), .linked.vertical > entry:not(:disabled) + entry:not(:disabled), .linked.vertical > entry:not(:disabled) + spinbutton:not(:disabled):not(.vertical),
 .linked.vertical > spinbutton:not(:disabled):not(.vertical) + entry:not(:disabled):backdrop, .linked.vertical > spinbutton:not(:disabled):not(.vertical) + spinbutton:not(:disabled):backdrop:not(.vertical), .linked.vertical > entry:not(:disabled) + entry:not(:disabled):backdrop, .linked.vertical > entry:not(:disabled) + spinbutton:not(:disabled):backdrop:not(.vertical),
 .linked.vertical > spinbutton:disabled:not(.vertical) + spinbutton:disabled:not(.vertical), .linked.vertical > spinbutton:disabled:not(.vertical) + entry:disabled, .linked.vertical > entry:disabled + spinbutton:disabled:not(.vertical), .linked.vertical > entry:disabled + entry:disabled { border-top-color: @transparent_borders; }
 
 .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + spinbutton:not(.vertical), .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + entry, .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + button, .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + combobox > box > button.combo, .linked.vertical > entry:focus.error:not(:only-child) + spinbutton:not(.vertical), .linked.vertical > entry:focus.error:not(:only-child) + entry, .linked.vertical > entry:focus.error:not(:only-child) + button, .linked.vertical > entry:focus.error:not(:only-child) + combobox > box > button.combo,
-.linked.vertical > spinbutton:not(.vertical) + spinbutton:focus.error:not(:only-child):not(.vertical), .linked.vertical > spinbutton:not(.vertical) + entry:focus.error:not(:only-child), .linked.vertical > entry + spinbutton:focus.error:not(:only-child):not(.vertical), .linked.vertical > entry + entry:focus.error:not(:only-child) { border-top-color: @error_bg_color; }
+.linked.vertical > spinbutton:not(.vertical) + spinbutton:focus.error:not(:only-child):not(.vertical), .linked.vertical > spinbutton:not(.vertical) + entry:focus.error:not(:only-child), .linked.vertical > entry + spinbutton:focus.error:not(:only-child):not(.vertical), .linked.vertical > entry + entry:focus.error:not(:only-child) {}
 
 .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + spinbutton:not(.vertical), .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + entry, .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + button, .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + combobox > box > button.combo, .linked.vertical > entry:focus:not(:only-child) + spinbutton:not(.vertical), .linked.vertical > entry:focus:not(:only-child) + entry, .linked.vertical > entry:focus:not(:only-child) + button, .linked.vertical > entry:focus:not(:only-child) + combobox > box > button.combo,
 .linked.vertical > spinbutton:not(.vertical) + spinbutton:focus:not(:only-child):not(.vertical), .linked.vertical > spinbutton:not(.vertical) + entry:focus:not(:only-child), .linked.vertical > entry + spinbutton:focus:not(:only-child):not(.vertical), .linked.vertical > entry + entry:focus:not(:only-child),
@@ -489,15 +497,14 @@ notebook > header > tabs > arrow,
 .inline-toolbar toolbutton > button,
 .toolbar .linked button.image-button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque)
 {
-	background-clip: padding-box;
-	transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	background-clip: border-box;
+	transition: all 150ms ease-in;
 	border: 1px solid;
-	border-color: @transparent_borders;
-	transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	border-color: transparent;
 	color: currentcolor;
 	outline-color: alpha(@window_fg_color,0.3);
 	background-color: @button_bg_color;
-	box-shadow: 0px 1px alpha(black,0.05);
+	box-shadow: none;
 	}
 
 headerbar entry,
@@ -523,14 +530,13 @@ headerbar .linked button:not(.titlebutton):not(.suggested-action):not(.destructi
 headerbar viewswitcher button.flat:not(.suggested-action):not(.destructive),
 .titlebar viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action)
 {
-	transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	background-clip: padding-box;
-	border-color: @transparent_borders;
+	transition: all 150ms ease-in;
+	background-clip: border-box;
+	border-color: transparent;
 	background-color: @titlebar_button_bg_color;
 	box-shadow: 0px 1px alpha(black,0.05);
 	}
 	 
-notebook > header > tabs > arrow:hover,
 button:hover,
 .org-gnome-Calendar .titlebar .text-button:hover,
 .nautilus-window .linked entry ~ .image-button:hover:not(:hover):not(:checked):not(:active):not(.model),
@@ -552,11 +558,13 @@ headerbar .linked button:not(.titlebutton):not(.suggested-action):not(.destructi
 .inline-toolbar toolbutton > button:hover,
 headerbar viewswitcher button.flat:not(.suggested-action):not(.destructive):hover,
 .toolbar .linked button.image-button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
-.titlebar viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):hover
+.titlebar viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):hover,
+messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover,
+messagedialog.background .dialog-vbox.vertical buttonbox.linked button:hover
 {
-	outline-color: alpha(@window_fg_color,0.3);
+	border-color: alpha(currentcolor,0.3);
 	background-image: none;
-	box-shadow: 0px 1px alpha(black,0.05), inset 0 0 0 1px alpha(currentcolor,0.3);
+	box-shadow: inset 0 0 0 1px alpha(currentcolor,0.3);
 	}
 
 /* Button Flat */
@@ -603,8 +611,8 @@ infobar button.flat
 	border-color: transparent;
 	background-color: transparent;
 	background-image: none;
-	box-shadow: inset 0 1px rgba(255, 255, 255, 0);
-	transition: none;
+	box-shadow: none;
+	transition: all 150ms ease-in;
 	}
 	
 button.sidebar-button:hover,
@@ -624,8 +632,6 @@ spinbutton:not(.vertical) button:hover,
 spinbutton.vertical button:hover,
 treeview.view header button:hover,
 list row button.image-button:not(.flat):hover,
-notebook > header > tabs > arrow:hover,
-messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover,
 calendar > header > button:hover,
 .toolbar button.image-button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):hover,
 #NautilusPathBar menubutton:hover,
@@ -647,23 +653,17 @@ toast button:not(.flat):hover,
 .budgie-panel button.launcher.flat:hover,
 .budgie-session-dialog .linked button:not(.suggested-action):not(.destructive-action):hover,
 .budgie-polkit-dialog .linked button:not(.suggested-action):not(.destructive-action):hover,
-messagedialog.background .dialog-vbox.vertical buttonbox.linked button:hover,
 .nautilus-list-view columnview header button:hover
 {
-	outline-color: alpha(@window_fg_color,0.3);
 	background-image: image(alpha(currentcolor,0.1));
 	box-shadow: none;
 	}
 	
-notebook > header > tabs > arrow:active,
-notebook > header > tabs > arrow:checked,
 button:active,
 button:checked,
 button.sidebar-button:hover:active,
-notebook > header > tabs > arrow:hover:active,
 button.flat:active,
 button.sidebar-button:hover:checked,
-notebook > header > tabs > arrow:hover:checked,
 button.flat:checked,
 button.titlebutton:active,
 button.titlebutton:checked,
@@ -728,8 +728,6 @@ headerbar .linked button:not(.titlebutton):not(.suggested-action):not(.destructi
 .titlebar .linked button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked,
 .inline-toolbar toolbutton > button:active,
 .inline-toolbar toolbutton > button:checked,
-notebook > header > tabs > arrow:active,
-notebook > header > tabs > arrow:checked,
 messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):active,
 messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked,
 calendar > header > button:active,
@@ -785,18 +783,19 @@ messagedialog.background .dialog-vbox.vertical buttonbox.linked button:checked,
 .nautilus-list-view columnview header button:active,
 .nautilus-list-view columnview header button:checked
 {
-	outline-color: alpha(@window_fg_color,0.3);
 	background-image: image(alpha(currentcolor,0.15));
 	box-shadow: none;
+    border-color: transparent;
 	}
 	
 /* Disabled State */
+
+button.flat:disabled{background-color: transparent;}
 
 notebook > header > tabs > arrow:disabled,
 button:disabled,
 button.sidebar-button:disabled,
 notebook > header > tabs > arrow:disabled,
-button.flat:disabled,
 spinbutton:not(.vertical) button:disabled,
 .org-gnome-Calendar .titlebar .text-button:disabled,
 .nautilus-window .linked entry ~ .image-button:disabled:not(:hover):not(:checked):not(:active):not(.model),
@@ -823,7 +822,7 @@ headerbar viewswitcher button.flat:not(.suggested-action):not(.destructive):disa
 .titlebar viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):disabled
 {
 	color: alpha(currentcolor,0.5);
-	background-color: transparent;
+	background-color: alpha(@button_bg_color,0.7);
 	text-shadow: none;
 	-gtk-icon-shadow: none;
 	box-shadow: none;
@@ -854,10 +853,12 @@ button:drop(active) {
 	border-color: @accent_bg_color;
 	box-shadow: inset 0 0 0 1px @accent_bg_color;
 	}
+
+button:disabled image{opacity: 0.5;}
 	
 /* Contextual */
 
-row button { background-clip: padding-box;}
+row button { background-clip: border-box;}
 
 row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled),
 row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled)
@@ -970,7 +971,7 @@ headerbar viewswitcher button.radio:not(.suggested-action):not(.destructive-acti
 .titlebar viewswitcher button.radio:not(.suggested-action):not(.destructive-action):not(:only-child),
 headerbar viewswitcher button.flat:not(.suggested-action):not(.destructive):not(:only-child),
 .toolbar .linked button.image-button:not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):not(:only-child)
-{ border-right-style: none; border-radius: 0; }
+{ border-right-style: solid; border-radius: 0; }
 
 .linked:not(.vertical) > combobox:first-child > box > button.combo,
 combobox.linked button:nth-child(2):dir(rtl),
@@ -1150,7 +1151,7 @@ button:selected:visited,
 *:selected *:link
 { color: mix(@red_3,@blue_3,0.5); }
 
-button:link > label:disabled, button:visited > label:disabled, button:disabled:link, button:disabled:visited, *:link:disabled, *:link:disabled:backdrop { color: @window_fg_color; }
+button:link > label:disabled, button:visited > label:disabled, button:disabled:link, button:disabled:visited, *:link:disabled, *:link:disabled:backdrop { color: @window_fg_color; background-color: transparent; }
 
 button:link, button:visited { text-shadow: none; font-weight: 400; }
 
@@ -1291,8 +1292,6 @@ headerbar:not(.selection-mode) button:not(.suggested-action):not(.destructive-ac
 .titlebar:not(.selection-mode) button:not(.suggested-action):not(.destructive-action):disabled
 { color: mix(@headerbar_fg_color,@headerbar_bg_color,0.5); }
 
-headerbar:not(.selection-mode) switch image, .titlebar:not(.selection-mode) switch image { color: transparent; }
-
 headerbar .linked.raised button:not(:only-child):not(:first-child),
 headerbar .linked button:not(:only-child):not(:first-child),
 headerbar > .stack-switcher.linked > button:not(:only-child):not(:first-child),
@@ -1329,7 +1328,7 @@ headerbar > .stack-switcher.linked > button:not(:only-child):not(:last-child):no
 .titlebar > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):active + button,
 .titlebar > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):checked + button,
 .titlebar > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):active + button
-{ border-left-color: @transparent_borders; }
+,
 
 headerbar .linked.raised button:not(:only-child):not(:last-child),
 headerbar .linked button:not(:only-child):not(:last-child),
@@ -1343,7 +1342,7 @@ headerbar > .stack-switcher.linked > button:not(:only-child):last-child,
 .titlebar .linked.raised button:not(:only-child):last-child,
 .titlebar .linked button:not(:only-child):last-child,
 .titlebar > .stack-switcher.linked > button:not(:only-child):last-child
-{ border-right-color: @transparent_borders; }
+{ }
 
 headerbar entry image, .titlebar entry image { color: currentcolor; }
 
@@ -1377,7 +1376,7 @@ headerbar.flat{border-bottom: none; background: @window_bg_color; box-shadow: no
 
 /* Treeview */
 
-treeview.view { border-left-color: @borders; border-top-color: @borders; }
+treeview.view { border-left-color: @borders; border-top-color: @borders; padding: 4px;}
 
 treeview.view:selected:focus, treeview.view:selected { border-radius: 0; }
 
@@ -1416,6 +1415,8 @@ treeview.view.progressbar:selected{border-radius: 9999px; }
 
 treeview.view acceleditor > label { background-color: @accent_bg_color; }
 
+treeview.view header button{background-color: transparent;}
+
 treeview.view header button,
 treeview.view header button:hover,
 treeview.view header button:active,
@@ -1437,7 +1438,7 @@ treeview.view header button:last-child,
 
 menubar,
 .menubar,
-window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal { color: @window_fg_color; border-radius: 0px; background-color: @window_bg_color; }
+window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal { color: @window_fg_color; border-radius: 0px; background-color: @window_bg_color;}
 
 menubar:backdrop,
 .menubar:backdrop
@@ -1538,7 +1539,13 @@ notebook > header.left tab:checked{box-shadow: inset -2px 0 currentcolor;}
 notebook > header.right tab:checked{box-shadow: inset 2px 0 currentcolor;}
 
 notebook > header tab:hover:not(:active):not(:checked),
-tabbar tab:hover:not(:active):not(:checked){color: alpha(currentcolor,0.7);}
+tabbar tab:hover:not(:active):not(:checked),
+notebook > header > tabs > arrow:hover{color: alpha(currentcolor,0.7);}
+
+notebook > header > tabs > arrow:active,
+notebook > header > tabs > arrow:checked,
+notebook > header > tabs > arrow:hover:active,
+notebook > header > tabs > arrow:hover:checked{color: alpha(currentcolor,0.3);}
 
 notebook > header.top { border-bottom-style: solid; }
 
@@ -1583,7 +1590,7 @@ scrollbar { background-color: transparent; transition: all 200ms linear; }
 scrollbar slider {
 	color: @window_fg_color;
 	border: none;
-	border-radius: 0px;
+	border-radius: 9999px;
 	background-clip: padding-box;
 	background-color: mix(@window_bg_color,@window_fg_color,0.5);
 	transition: all 200ms linear;
@@ -1609,7 +1616,13 @@ switch:disabled { color: @insensitive_fg_color; border-color: transparent; backg
 
 switch slider { background-color: @accent_fg_color; border: none; border-radius: 9999px; box-shadow: none; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-switch image { color: transparent; }
+switch image,
+headerbar:not(.selection-mode) switch image,
+.titlebar:not(.selection-mode) switch image,
+switch image:disabled,
+headerbar:not(.selection-mode) switch image:disabled,
+.titlebar:not(.selection-mode) switch image:disabled
+{ color: transparent; }
 
 switch:disabled slider { background-color: mix(@view_bg_color,mix(white,@view_bg_color,0.2),0.5); box-shadow: none; }
 
@@ -1787,11 +1800,18 @@ treeview.view radio:checked:selected, radio:checked { -gtk-icon-source: image(-g
 
 /* Scale Bar */
 
-scale slider{ background-color: transparent; box-shadow: none; border-radius: 9999px; border-width: 0px; border-style: none; border-color: transparent;}
+scale slider{
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 9999px;
+    border: 3px solid transparent;
+    transition: all 150ms ease-in;
+}
 
 scale:hover slider,
 scale.marks-after slider,
 scale.marks-before slider{
+	transition: all 150ms ease-in;
     background-color: @view_bg_color;
     border: 3px solid @accent_bg_color;
     box-shadow: 0 1px 2px @shadow;
@@ -2006,11 +2026,10 @@ button.circular.day{border-color: transparent; box-shadow: none; background-clip
 
 dialog buttonbox,
 .dialog-action-area
-{padding: 8px; }
-
+,
 messagedialog .dialog-action-area,
 window.dialog.message.csd .dialog-action-area
-{padding: 0px; }
+{padding: 8px;}
 
 /* Message Dialog */
 
@@ -2026,7 +2045,7 @@ messagedialog.csd .dialog-action-area button.destructive-action,
 .budgie-session-dialog .linked button,
 .budgie-polkit-dialog .linked button,
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button
-{ border-right-style: none; border-bottom-style: none; border-radius: 0; border-top: 1px solid @transparent_borders; border-left: 1px solid @transparent_borders; }
+{ border-radius: 8.0px; }
 
 messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):first-child,
 messagedialog.csd .dialog-action-area button.suggested-action:first-child,
@@ -2034,7 +2053,7 @@ messagedialog.csd .dialog-action-area button.destructive-action:first-child,
 .budgie-session-dialog .linked button:first-child,
 .budgie-polkit-dialog .linked button:first-child,
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button:first-child
-{ border-left-style: none; border-bottom-left-radius: 8.0px; }
+{margin-right: 4px; }
 
 messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):last-child,
 messagedialog.csd .dialog-action-area button.suggested-action:last-child,
@@ -2042,9 +2061,9 @@ messagedialog.csd .dialog-action-area button.destructive-action:last-child,
 .budgie-session-dialog .linked.horizontal button:last-child,
 .budgie-polkit-dialog .linked.horizontal button:last-child,
 messagedialog.background .dialog-vbox.vertical buttonbox.linked button:last-child
-{ border-bottom-right-radius: 8.0px; }
+{ margin-left: 4px; }
 
-messagedialog.background .dialog-vbox.vertical buttonbox.linked button {padding: 12px;}
+messagedialog.background .dialog-vbox.vertical buttonbox.linked button {}
 
 .budgie-session-dialog .linked button,
 .budgie-polkit-dialog .linked button{padding: 10px;}

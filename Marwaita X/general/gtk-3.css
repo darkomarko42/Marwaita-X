@@ -249,7 +249,7 @@ popover.background { border: 1px solid @transparent_borders; }
 
 * { -GtkScrollbar-has-backward-stepper: false; -GtkScrollbar-has-forward-stepper: false; }
 
-scrollbar slider { min-width: 10px; min-height: 10px; margin: 0px; }
+scrollbar slider { min-width: 8px; min-height: 8px; margin: 6px; }
 
 /* Switch */
 

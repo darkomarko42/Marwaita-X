@@ -47,6 +47,8 @@
 .applet-box{padding: 0 10px; spacing: 8px;}
 .applet-box.vertical{padding: 10px 0;}
 
+.applet-cornerbar { width: 8px;}
+
 .window-list-item-box{spacing: 6px;}
 
 .window-list-item-box.top,
@@ -56,7 +58,8 @@
 
 .sound-player StButton:small{padding: 0;}
 
-StScrollBar StButton{padding: 4px;}
+StScrollBar StButton,
+.applet-cornerbar-box{padding: 4px;}
 
 .menu-category-button,
 .menu-category-button-selected,
@@ -238,7 +241,8 @@ StButton,
 StButton:hover,
 #notification .notification-button:hover,
 .window-close,
-.window-close:hover
+.window-close:hover,
+.applet-cornerbar
 { background-color: rgba(255,255,255, 0.15); box-shadow: none;}
 
 StButton:active,
@@ -260,7 +264,8 @@ StButton:checked,
 .grouped-window-list-item-box:active:focus,
 .calendar-today,
 .calendar-today:selected,
-.calendar-today:selected:hover
+.calendar-today:selected:hover,
+.applet-cornerbar-box:hover > .applet-cornerbar
 { background-color: rgba(255,255,255, 0.2); box-shadow: none;}
 
 .window-list-item-box,
@@ -348,10 +353,10 @@ StEntry,
 
 /* Border Radius */
 
-.popup-submenu-menu-item:open{ border-radius: 6px 6px 0px 0px ; }
+.popup-submenu-menu-item:open{ border-radius: 8px 8px 0px 0px ; }
 
 .popup-sub-menu,
-.popup-sub-menu .popup-menu-item:last-child{ border-radius: 0px 0px 6px 6px; }
+.popup-sub-menu .popup-menu-item:last-child{ border-radius: 0px 0px 8px 8px; }
 
 StEntry,
 StButton,
@@ -376,13 +381,15 @@ StButton,
 .grouped-window-list-thumbnail-menu,
 .popup-menu-item,
 .popup-sub-menu .popup-menu-item
-{border-radius: 6px;}
+{border-radius: 8px;}
 
-StScrollBar StButton{border-radius: 0px; border-color: transparent; background-clip: border-box;}
+StScrollBar StButton{border-radius: 9999px; border-color: transparent; background-clip: border-box;}
 
 .grouped-window-list-badge,
 .workspace-close-button,
-.window-close{border-radius: 9999px;}
+.window-close,
+.applet-cornerbar
+{border-radius: 9999px;}
 
 .workspace-graph .workspace .windows {
 	-active-window-background: rgba(140, 140, 140, 1.0);
