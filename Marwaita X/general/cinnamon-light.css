@@ -48,6 +48,7 @@
 .applet-box.vertical{padding: 10px 0;}
 
 .applet-cornerbar { width: 8px;}
+.applet-cornerbar.vertical { height: 8px;}
 
 .window-list-item-box{spacing: 6px;}
 
