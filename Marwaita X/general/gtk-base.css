@@ -335,7 +335,7 @@ label:disabled selection, label:disabled:selected, .selection-mode button.titleb
 .thunar treeview.view:selected:hover,
 .thunar treeview.view:selected:focus,
 viewport.frame list.sidebar row.activatable:selected
-{color: mix(@window_fg_color,@accent_bg_color,0.7); font-weight: bold;}
+{color: mix(@window_fg_color,@accent_bg_color,0.7); }
 
 .budgie-panel separator,
 .raven scale highlight,
@@ -892,7 +892,7 @@ popover.background.magnifier button:disabled,
 .osd button:disabled 
 { color: alpha(currentcolor,0.5); background-color: transparent; border-color: alpha(currentcolor,0.2); }
 
-infobar button:not(.flat){background-color: alpha(currentcolor,0.1); border: none; }
+infobar button:not(.flat){background-color: alpha(currentcolor,0.1); }
 
 /* Action Button */
 
