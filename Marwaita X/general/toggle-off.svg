@@ -6,7 +6,7 @@
    version="1.1"
    id="svg15"
    sodipodi:docname="toggle-off.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -22,14 +22,15 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="12.822917"
-     inkscape:cx="27.645816"
-     inkscape:cy="11.697806"
+     inkscape:cx="29.400487"
+     inkscape:cy="11.736799"
      inkscape:window-width="1920"
-     inkscape:window-height="1006"
+     inkscape:window-height="988"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg15" />
+     inkscape:current-layer="svg15"
+     inkscape:pageshadow="2" />
   <defs
      id="defs11">
     <style
@@ -73,15 +74,17 @@
      rx="13"
      ry="12"
      x="0"
-     y="1"
-     style="stroke-width:0.960769;fill:#ffffff;fill-opacity:0.30000001" />
-  <circle
-     id="Elips_2"
-     data-name="Elips 2"
-     class="cls-2"
-     cx="13"
-     cy="13"
-     r="11"
-     transform="matrix(0.72727273,0,0,0.72727273,2.5454545,3.5454545)"
-     style="stroke:none" />
+     y="-25"
+     style="fill:#ffffff;fill-opacity:1;stroke-width:0.960769;opacity:0.3"
+     transform="scale(1,-1)" />
+  <rect
+     style="opacity:1;fill:#ffffff;stroke-width:1.48403"
+     id="rect1350"
+     width="12"
+     height="12"
+     x="-18"
+     y="7"
+     rx="6"
+     ry="6"
+     transform="scale(-1,1)" />
 </svg>
