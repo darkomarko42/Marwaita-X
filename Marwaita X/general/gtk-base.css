@@ -46,7 +46,7 @@
 
 @define-color accent_color #0f6ee3;
 
-@define-color button_bg_color alpha(currentcolor,0.15);
+@define-color button_bg_color alpha(mix(currentcolor,@accent_bg_color,0.8),0.15);
 
 @define-color headerbar_border_color @transparent_borders;
 @define-color headerbar_shade_color mix(@headerbar_bg_color,@transparent_borders,0.2);
@@ -322,7 +322,7 @@ list.boxed-list > row:not(:selected).activatable:active,
 list.boxed-list > row.expander row.header:not(:selected).activatable:active,
 row.expander list.nested > row:not(:selected).activatable:active { background-color: alpha(@accent_bg_color,0.2); color: @window_fg_color; }
 
-label:disabled selection, label:disabled:selected, .selection-mode button.titlebutton:disabled, .titlebar entry selection:disabled, .view:disabled:selected, .nautilus-window notebook:disabled:selected, .nautilus-window notebook > stack:disabled:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:disabled:selected, textview text:disabled:selected:focus, .view text:disabled:selected, textview text:disabled:selected, .view text selection:disabled, textview text selection:disabled:focus, textview text selection:disabled, iconview:disabled:selected:focus, iconview:disabled:selected, iconview text selection:disabled:focus, iconview text selection:disabled, flowbox flowboxchild:disabled:selected, entry selection:disabled, modelbutton.flat:disabled:selected, .menuitem.button.flat:disabled:selected, spinbutton:not(.vertical) selection:disabled, treeview.view:disabled:selected, calendar:disabled:selected { color: mix(@accent_fg_color,@accent_bg_color,0.5); }
+label:disabled selection, label:disabled:selected, .selection-mode button.titlebutton:disabled, .titlebar entry selection:disabled, .view:disabled:selected, .nautilus-window notebook:disabled:selected, .nautilus-window notebook > stack:disabled:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:disabled:selected, textview text:disabled:selected:focus, .view text:disabled:selected, textview text:disabled:selected, .view text selection:disabled, textview text selection:disabled:focus, textview text selection:disabled, iconview:disabled:selected:focus, iconview:disabled:selected, iconview text selection:disabled:focus, iconview text selection:disabled, flowbox flowboxchild:disabled:selected, entry selection:disabled, modelbutton.flat:disabled:selected, .menuitem.button.flat:disabled:selected, spinbutton:not(.vertical) selection:disabled, treeview.view:disabled:selected, calendar:disabled:selected { color: alpha(currentcolor,0.5); }
 
 .sidebar-row.activatable:selected,
 .navigation-sidebar row.activatable:selected,
@@ -790,13 +790,13 @@ messagedialog.background .dialog-vbox.vertical buttonbox.linked button:not(.sugg
 	
 /* Disabled State */
 
-button.flat:disabled{background-color: transparent;}
+button.flat:disabled,
+spinbutton:not(.vertical) button:disabled{background-color: transparent;}
 
 notebook > header > tabs > arrow:disabled,
 button:disabled,
 button.sidebar-button:disabled,
 notebook > header > tabs > arrow:disabled,
-spinbutton:not(.vertical) button:disabled,
 .org-gnome-Calendar .titlebar .text-button:disabled,
 .nautilus-window .linked entry ~ .image-button:disabled:not(:hover):not(:checked):not(:active):not(.model),
 .nautilus-window .search + .toggle.popup:disabled,
@@ -1384,10 +1384,6 @@ treeview.view:selected:backdrop, treeview.view:selected { border-left-color: mix
 
 treeview.view:disabled { color: @insensitive_fg_color; }
 
-treeview.view:disabled:selected { color: mix(@accent_fg_color,@accent_bg_color,0.6); }
-
-treeview.view:disabled:selected:backdrop { color: mix(@window_bg_color,@accent_bg_color,0.7); }
-
 treeview.view.separator { color: @window_bg_color; }
 
 treeview.view:drop(active) { border-style: solid none; border-width: 1px; border-color: mix(black,@accent_bg_color,0.85); }
@@ -1533,14 +1529,14 @@ notebook > header tab,tabbar tab { outline-offset: -5px; color: @window_fg_color
 
 notebook > header.top tab:checked,
 tabbar tab:checked,
-tabbar tab:selected{box-shadow: inset 0 -2px currentcolor;}
-notebook > header.bottom tab:checked{box-shadow: inset 0 2px currentcolor;}
-notebook > header.left tab:checked{box-shadow: inset -2px 0 currentcolor;}
-notebook > header.right tab:checked{box-shadow: inset 2px 0 currentcolor;}
+tabbar tab:selected{box-shadow: inset 0 -2px @accent_bg_color;}
+notebook > header.bottom tab:checked{box-shadow: inset 0 2px @accent_bg_color;}
+notebook > header.left tab:checked{box-shadow: inset -2px 0 @accent_bg_color;}
+notebook > header.right tab:checked{box-shadow: inset 2px 0 @accent_bg_color;}
 
 notebook > header tab:hover:not(:active):not(:checked),
 tabbar tab:hover:not(:active):not(:checked),
-notebook > header > tabs > arrow:hover{color: alpha(currentcolor,0.7);}
+notebook > header > tabs > arrow:hover{color: mix(@accent_bg_color,@window_fg_color,0.2);}
 
 notebook > header > tabs > arrow:active,
 notebook > header > tabs > arrow:checked,
@@ -1582,6 +1578,8 @@ notebook > header.top tabs tab.reorderable-page, notebook > header.bottom tabs t
 notebook > header.left tabs tab.reorderable-page, notebook > header.right tabs tab.reorderable-page { border-style: none solid; }
 
 notebook > stack:not(:only-child) { background-color: @view_bg_color; }
+
+notebook button.flat{transition: none; animation: none;}
 
 /* Scroll Bar */
 
@@ -1836,9 +1834,7 @@ scale.color.fine-tune.vertical:dir(rtl) trough { background-position: -6px 0; }
 
 progressbar { font-size: smaller; color: alpha(@window_fg_color,0.4); font-feature-settings: "tnum"; }
 
-progressbar trough, scale fill, scale trough { border-radius: 8.0px; background-color: alpha(@view_fg_color,0.15); }
-
-progressbar trough:disabled, scale fill:disabled, scale trough:disabled { background-color: alpha(alpha(@view_fg_color,0.15),0.5); }
+progressbar trough, scale fill, scale trough,levelbar trough { border-radius: 8.0px; background-color: @button_bg_color; }
 
 row:selected progressbar trough, progressbar row:selected trough, row:selected scale fill, scale row:selected fill, row:selected scale trough, scale row:selected trough { border-color: mix(black,@accent_bg_color,0.85); }
 
@@ -1862,7 +1858,7 @@ levelbar.vertical.discrete block:first-child { border-radius: 8.0px 8.0px 0 0; }
 
 levelbar.vertical.discrete block:last-child { border-radius: 0 0 8.0px 8.0px; }
 
-levelbar trough { border: 0px solid; border-radius: 8.0px; background-color: alpha(@view_fg_color,0.15); }
+levelbar trough { border: 0px solid; border-radius: 8.0px; }
 
 levelbar block { border: 0px solid; border-radius: 0; }
 
@@ -2746,7 +2742,7 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 /* Nemo */
 
-.caja-desktop.caja-canvas-item, .nemo-desktop.nemo-canvas-item { color: @accent_fg_color; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); }
+.caja-desktop.caja-canvas-item{ color: @accent_fg_color; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); }
 
 .nemo-properties-dialog toolbar stackswitcher.linked button:backdrop { color: @insensitive_fg_color; background-color: @window_bg_color; }
 
