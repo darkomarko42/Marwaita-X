@@ -356,6 +356,8 @@ StEntry,
 
 .popup-submenu-menu-item:open{ border-radius: 8px 8px 0px 0px ; }
 
+.popup-sub-menu .popup-menu-item{border-radius: 0px;}
+
 .popup-sub-menu,
 .popup-sub-menu .popup-menu-item:last-child{ border-radius: 0px 0px 8px 8px; }
 
@@ -380,8 +382,7 @@ StButton,
 .calendar-event-button,
 .overview-empty-placeholder,
 .grouped-window-list-thumbnail-menu,
-.popup-menu-item,
-.popup-sub-menu .popup-menu-item
+.popup-menu-item
 {border-radius: 8px;}
 
 StScrollBar StButton{border-radius: 9999px; border-color: transparent; background-clip: border-box;}
