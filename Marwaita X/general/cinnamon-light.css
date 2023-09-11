@@ -8,8 +8,7 @@
 .calendar-today,
 .calendar-events-date-label,
 .calendar-event-time-present,
-.grouped-window-list-thumbnail-menu .item-box,
-#Tooltip
+.grouped-window-list-thumbnail-menu .item-box
 { font-weight: bold;}
 
 .calendar-day-heading,
@@ -128,7 +127,7 @@ StButton.notification-applet-padding,
 .sound-player StBoxLayout,
 .popup-menu-item {  spacing: 1em;}
 
-.popup-menu-content{ padding: 6px;}
+.popup-menu-content{ padding: 6px 0px;}
 
 .calendar-today-home-button,
 .calendar-today-home-button-enabled,
@@ -354,12 +353,14 @@ StEntry,
 
 /* Border Radius */
 
-.popup-submenu-menu-item:open{ border-radius: 8px 8px 0px 0px ; }
+.popup-menu-item,
 
-.popup-sub-menu .popup-menu-item{border-radius: 0px;}
+.popup-submenu-menu-item:open,
+
+.popup-sub-menu .popup-menu-item,
 
 .popup-sub-menu,
-.popup-sub-menu .popup-menu-item:last-child{ border-radius: 0px 0px 8px 8px; }
+.popup-sub-menu .popup-menu-item:last-child{ border-radius: 0px; }
 
 StEntry,
 StButton,
@@ -381,8 +382,7 @@ StButton,
 .osd-window,
 .calendar-event-button,
 .overview-empty-placeholder,
-.grouped-window-list-thumbnail-menu,
-.popup-menu-item
+.grouped-window-list-thumbnail-menu
 {border-radius: 8px;}
 
 StScrollBar StButton{border-radius: 9999px; border-color: transparent; background-clip: border-box;}

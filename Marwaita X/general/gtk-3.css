@@ -192,11 +192,13 @@ window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerb
 .ssd .default-decoration,
 .default-decoration.titlebar:not(headerbar),
 .csd .default-decoration.titlebar:not(headerbar)
-{border-bottom: none;}
+{}
 
 /* Treeview */
 
 * { -GtkTreeView-horizontal-separator: 4; -GtkTreeView-grid-line-width: 1; -GtkTreeView-grid-line-pattern: ''; -GtkTreeView-tree-line-width: 1; -GtkTreeView-tree-line-pattern: ''; -GtkTreeView-expander-size: 16; }
+
+treeview.view { padding: 4px;}
 
 treeview.view.separator { min-height: 2px; }
 
@@ -204,13 +206,15 @@ treeview.view:not(:backdrop):not(:selected):hover { }
 
 /* Menus */
 
+modelbutton.flat, .menuitem.button.flat { border-radius: 8.0px; outline-offset: -2px; }
+
 menubar, .menubar { -GtkWidget-window-dragging: true; padding: 0px; }
 
 menubar > menuitem, .menubar > menuitem { padding: 4px 8px; min-height: 16px; }
 
-menubar > menuitem menu:dir(rtl), menubar > menuitem menu:dir(ltr), .menubar > menuitem menu:dir(rtl), .menubar > menuitem menu:dir(ltr) { padding: 6px; }
+menubar > menuitem menu:dir(rtl), menubar > menuitem menu:dir(ltr), .menubar > menuitem menu:dir(rtl), .menubar > menuitem menu:dir(ltr) { padding: 6px 0px; }
 
-menu, .menu, .context-menu { margin: 4px; padding: 6px; }
+menu, .menu, .context-menu { margin: 4px; padding: 6px 0px; }
 
 menu separator, .menu separator, .context-menu separator { margin: 6px 0; }
 

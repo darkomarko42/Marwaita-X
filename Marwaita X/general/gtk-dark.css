@@ -8,14 +8,14 @@
 
 @define-color altbar_bg_color @window_bg_color;
 
-@define-color view_bg_color @window_bg_color;
+@define-color view_bg_color shade(@window_bg_color,1.2);
 @define-color view_fg_color @window_fg_color;
 
 @define-color accent_bg_color mix(@accent_color,white,0.3);
 @define-color accent_fg_color black;
 
-@define-color borders mix(black,@window_bg_color,0.5);
-@define-color transparent_borders alpha(black,0.5);
+@define-color borders mix(white,@window_bg_color,0.8);
+@define-color transparent_borders alpha(white,0.2);
 
 @define-color shadow alpha(black,0.5);
 @define-color button_shadow alpha(black,0.1);

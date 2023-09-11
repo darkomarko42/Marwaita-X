@@ -643,6 +643,8 @@ row.expander:checked image.expander-row-arrow { -gtk-icon-transform: rotate(0tur
 
 /* Menus */
 
+modelbutton.flat, .menuitem.button.flat { border-radius: 0px; outline-offset: -2px; }
+
 .csd popover.background { border-color: transparent; } /* !!! this is use on gtk3 !!!*/
 
 popover.background > arrow,
@@ -659,7 +661,7 @@ popover.menu box.circular-buttons { padding: 12px 12px 6px; }
 popover.menu > contents,
 popover.entry-completion > contents { padding: 0; }
 
-popover.menu > contents > stack > box, popover.menu > contents > scrolledwindow > viewport > stack > box { padding: 6px; }
+popover.menu > contents > stack > box, popover.menu > contents > scrolledwindow > viewport > stack > box { padding: 6px 0px; }
 
 popover.menu separator { margin: 6px 0; }
 
@@ -688,15 +690,11 @@ popover.menu check.right, popover.menu radio.right, popover.menu arrow.right { m
 
 popover.menu modelbutton arrow { background: none; min-width: 16px; min-height: 16px; }
 
-popover.menu modelbutton arrow.left { -gtk-icon-source: -gtk-icontheme("go-previous-symbolic"); }
-
-popover.menu modelbutton arrow.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
-
 popover.menu label.title { font-weight: bold; padding: 4px 32px; }
 
 popover.menu list, popover.menu listview { background: none; color: inherit; }
 
-popover.menu list > row, popover.menu listview > row { border-radius: 8.0px; padding: 0 12px; min-height: 32px; min-width: 40px; }
+popover.menu list > row, popover.menu listview > row { border-radius: 0px; padding: 0 12px; min-height: 32px; min-width: 40px; }
 
 popover.menu list > row:selected, popover.menu listview > row:selected { background: none; }
 
@@ -704,7 +702,7 @@ popover.menu list > row > box, popover.menu listview > row > box { border-spacin
 
 popover.menu contents > list, popover.menu contents > listview, popover.menu scrolledwindow > viewport > list, popover.menu scrolledwindow > listview { padding: 6px 0; }
 
-popover.menu contents > list > row, popover.menu contents > listview > row, popover.menu scrolledwindow > viewport > list > row, popover.menu scrolledwindow > listview > row { margin: 0 6px; }
+popover.menu contents > list > row, popover.menu contents > listview > row, popover.menu scrolledwindow > viewport > list > row, popover.menu scrolledwindow > listview > row { margin: 0px; }
 
 menubar { padding: 0px; }
 
@@ -1048,9 +1046,9 @@ spinbutton.vertical { /* :not here just to bump specificity above that of the li
 
 spinbutton.vertical > text { min-height: 30px; min-width: 30px; }
 
-spinbutton.vertical text {background-color: @view_bg_color; border: 1px solid @transparent_borders;}
+spinbutton.vertical text {background-color: @button_bg_color; border: none;}
 
-spinbutton.vertical text:disabled{background-color: transparent; }
+spinbutton.vertical text:disabled{background-color: alpha(@button_bg_color,0.5); }
 
 treeview spinbutton:not(.vertical) { min-height: 0; border-style: none; border-radius: 0; }
 
@@ -1059,8 +1057,6 @@ treeview spinbutton:not(.vertical) > text { min-height: 0; padding: 1px 2px; }
 /* Switch */
 
 switch { padding: 2px; }
-
-switch > image { color: transparent; }
 
 switch > slider { margin: 4px; min-width: 16px; min-height: 16px; }
 
