@@ -1454,7 +1454,7 @@ window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal 
 
 menubar:backdrop,
 .menubar:backdrop
-window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal:backdrop{ color: mix(@window_fg_color,@window_bg_color,0.5); }
+window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal:backdrop{ }
 
 menubar > menuitem:disabled, .menubar > menuitem:disabled { color: @insensitive_fg_color; box-shadow: none; }
 
