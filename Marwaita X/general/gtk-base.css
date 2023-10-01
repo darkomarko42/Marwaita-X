@@ -46,7 +46,7 @@
 
 @define-color accent_color #0f6ee3;
 
-@define-color button_bg_color alpha(mix(currentcolor,@accent_bg_color,0.8),0.15);
+@define-color button_bg_color mix(@accent_bg_color,@window_bg_color,0.8);
 
 @define-color headerbar_border_color @transparent_borders;
 @define-color headerbar_shade_color mix(@headerbar_bg_color,@transparent_borders,0.2);
@@ -152,8 +152,13 @@ headerbar entry,
 headerbar spinbutton,
 headerbar separator:not(.sidebar),
 headerbar button,
+headerbar .linked button,
 headerbar switch
 { margin-top: 4px; margin-bottom: 4px; }
+
+/* this fix the size of some buttons */
+headerbar .linked.horizontal
+{ margin-top: 0px; margin-bottom: 0px; }
 
 popover.menu modelbutton,
 modelbutton.flat,
@@ -1195,9 +1200,9 @@ spinbutton.vertical:drop(active) { border-color: transparent; box-shadow: none; 
 
 spinbutton.vertical entry { border-radius: 0; }
 
-spinbutton.vertical button.up { border-radius: 8.0px 8.0px 0 0; border-style: solid solid none solid; }
+spinbutton.vertical button.up { border-radius: 8.0px 8.0px 0 0; border-style: none; }
 
-spinbutton.vertical button.down { border-radius: 0 0 8.0px 8.0px; border-style: none solid solid solid; }
+spinbutton.vertical button.down { border-radius: 0 0 8.0px 8.0px; border-style: none; }
 
 treeview spinbutton:not(.vertical) { border-style: none; border-radius: 0; }
 
@@ -1261,7 +1266,8 @@ searchbar > revealer > box, .location-bar { border-width: 0 0 1px; border-style:
 	linear-gradient(40deg, transparent 90%, alpha(@accent_bg_color,0.1) 90%),
 	linear-gradient(60deg, transparent 85%, alpha(@accent_bg_color,0.1) 85%),
 	linear-gradient(160deg, transparent 85%, alpha(@accent_bg_color,0.1) 85%);
-	background-size: 2100px;
+	background-size: 210% auto;
+    background-repeat: no-repeat;
 	background-position: right; }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { background-color: @headerbar_backdrop_color; background-image: none; transition: 500ms ease-out; }
@@ -1377,8 +1383,6 @@ headerbar entry progress:backdrop, .titlebar entry progress:backdrop { backgroun
 headerbar .linked entry:not(:first-child), .titlebar .linked entry:not(:first-child) { border-left-color: @transparent_borders; }
 
 headerbar .linked entry:not(:first-child):backdrop, .titlebar .linked entry:not(:first-child):backdrop { border-left-color: @transparent_borders; }
-
-headerbar:not(:backdrop), .titlebar:not(:backdrop) { transition: 500ms ease-in; }
 
 headerbar.flat{border-bottom: none; background: @window_bg_color; box-shadow: none;}
 
@@ -1620,15 +1624,17 @@ scrollbar.horizontal button.up { -gtk-icon-source: -gtk-icontheme("pan-start-sym
 
 /* Switch */
 
-switch { outline-offset: -4px; border-radius: 9999px; color: @window_fg_color; background-color: @insensitive_fg_color; }
+switch { outline-offset: -4px; border-radius: 9999px; color: @window_fg_color; background-color: alpha(currentcolor,0.2); }
 
-switch:checked { color: @accent_fg_color; background-color: @accent_bg_color; }
+switch:checked { color: @accent_bg_color; background-color: alpha(currentcolor,0.2); }
 
-switch:checked:disabled { background-color: alpha(@accent_bg_color,0.5); }
+switch:checked:disabled { color: alpha(@accent_bg_color,0.5); }
 
-switch:disabled { color: @insensitive_fg_color; border-color: transparent; background-color: mix(@window_fg_color,@window_bg_color,0.8); text-shadow: none; }
+switch:disabled { color: @insensitive_fg_color; border-color: transparent; background-color: alpha(currentcolor,0.2); text-shadow: none; }
 
-switch slider { background-color: @accent_fg_color; border: none; border-radius: 9999px; box-shadow: none; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+switch slider { background-color: @window_fg_color; border: none; border-radius: 9999px; box-shadow: none; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+switch:checked slider{background-color: @accent_bg_color;}
 
 switch image,
 headerbar:not(.selection-mode) switch image,
@@ -1639,7 +1645,9 @@ headerbar:not(.selection-mode) switch image:disabled,
 switch > image
 { color: transparent; }
 
-switch:disabled slider { background-color: mix(@view_bg_color,mix(white,@view_bg_color,0.2),0.5); box-shadow: none; }
+switch:disabled slider { background-color: currentcolor; box-shadow: none; }
+
+switch slider:checked:disabled{background-color: alpha(@accent_bg_color,0.5);}
 
 row:selected switch { box-shadow: none; border-color: mix(black,@accent_bg_color,0.8); }
 
@@ -2049,7 +2057,17 @@ dialog .dialog-action-box.horizontal{border-top: 1px solid @transparent_borders;
 /* Message Dialog */
 
 messagedialog .titlebar,
-messagedialog .titlebar:backdrop { background-image: none; background: @dialog_bg_color; color: @dialog_fg_color; border-style: none; border-top-left-radius: 8.0px; border-top-right-radius: 8.0px; }
+messagedialog .titlebar:backdrop,
+dialog headerbar,
+dialog headerbar:backdrop { background-image: none; background: @dialog_bg_color; border-bottom: none; animation: none; transition: none; }
+
+messagedialog .titlebar,
+dialog headerbar
+{color: @dialog_fg_color;}
+
+messagedialog .titlebar:backdrop,
+dialog headerbar:backdrop
+{color: alpha(@dialog_fg_color,0.5);}
 
 messagedialog.csd.background,
 messagedialog.background .dialog-vbox.vertical { border-bottom-left-radius: 8.0px; border-bottom-right-radius: 8.0px; background-color: @dialog_bg_color; color: @dialog_fg_color; }

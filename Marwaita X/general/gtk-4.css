@@ -1170,7 +1170,7 @@ actionbar > revealer > box, actionbar > revealer > box > box.start, actionbar > 
 
 /* Info Bar */
 
-infobar > revealer > box { padding: 6px; border-spacing: 6px; }
+infobar > revealer > box { padding: 6px 12px; border-spacing: 6px; }
 
 infobar > revealer > box > box { border-spacing: 6px; }
 

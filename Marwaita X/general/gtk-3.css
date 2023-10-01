@@ -463,6 +463,8 @@ paned.vertical > separator.wide { margin: 0; padding: 0; }
 
 /* Info Bar */
 
+infobar{padding: 0px 8px;}
+
 infobar .close { min-width: 18px; min-height: 18px; padding: 4px; }
 
 /* Tooltip */

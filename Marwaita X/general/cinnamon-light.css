@@ -11,6 +11,8 @@
 .grouped-window-list-thumbnail-menu .item-box
 { font-weight: bold;}
 
+#Tooltip {color: rgba(255,/**/255,255, 1.0)}
+
 .calendar-day-heading,
 .calendar-today-home-button *,
 .overview-empty-placeholder *
@@ -208,7 +210,6 @@ StButton:checked.radiobutton
 .overview-empty-placeholder,
 .grouped-window-list-thumbnail-menu,
 #notification,
-#Tooltip,
 .window-caption
 {background-color: #f3f8fe;}
 
@@ -290,6 +291,8 @@ StButton:checked,
 
 .expo-background{background-color: #252525;}
 
+#Tooltip {background-color: rgba(0,/**/0,0, 0.8);}
+
 /* Borders */
 
 .menu,
@@ -344,9 +347,10 @@ StEntry,
 .panel-left,
 .panel-right,
 #notification,
-#Tooltip,
 .window-caption
 {border-color: rgba(0,0,0, 0.2);}
+
+#Tooltip{border-color: rgba(255,/**/255,255, 0.2);}
 
 .popup-separator-menu-item,
 .calendar-events-main-box .separator{background-color: rgba(0,0,0, 0.2);}
