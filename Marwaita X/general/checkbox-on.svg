@@ -5,7 +5,7 @@
    version="1.1"
    id="svg32"
    sodipodi:docname="checkbox-on.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -21,14 +21,15 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="18.083333"
-     inkscape:cx="13.354839"
-     inkscape:cy="14.764977"
+     inkscape:cx="7.5207375"
+     inkscape:cy="15.235023"
      inkscape:window-width="1920"
-     inkscape:window-height="1006"
+     inkscape:window-height="991"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg32" />
+     inkscape:current-layer="svg32"
+     inkscape:pageshadow="2" />
   <defs
      id="defs22">
     <linearGradient

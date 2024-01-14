@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="48"
-   height="26"
-   viewBox="0 0 48 26"
+   width="32"
+   height="16"
+   viewBox="0 0 32 16"
    version="1.1"
    id="svg15"
    sodipodi:docname="toggle-off.svg"
@@ -22,15 +22,16 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="12.822917"
-     inkscape:cx="29.400487"
-     inkscape:cy="11.736799"
+     inkscape:cx="16.766856"
+     inkscape:cy="13.842404"
      inkscape:window-width="1920"
-     inkscape:window-height="988"
+     inkscape:window-height="991"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg15"
-     inkscape:pageshadow="2" />
+     inkscape:pageshadow="2"
+     height="24px" />
   <defs
      id="defs11">
     <style
@@ -62,29 +63,30 @@
       <feBlend
          result="blend"
          in2="SourceGraphic"
-         id="feBlend8" />
+         id="feBlend8"
+         mode="normal" />
     </filter>
   </defs>
   <rect
      id="Dikdörtgen_1"
      data-name="Dikdörtgen 1"
      class="cls-1"
-     width="48"
-     height="24"
-     rx="13"
-     ry="12"
+     width="32"
+     height="16"
+     rx="8"
+     ry="8"
      x="0"
-     y="-25"
-     style="fill:#ffffff;fill-opacity:1;stroke-width:0.960769;opacity:0.3"
+     y="-16"
+     style="fill:#808080;fill-opacity:1;stroke-width:0.640513"
      transform="scale(1,-1)" />
   <rect
-     style="opacity:1;fill:#ffffff;stroke-width:1.48403"
+     style="opacity:1;fill:#ffffff;stroke:none;stroke-width:1.23669"
      id="rect1350"
-     width="12"
-     height="12"
-     x="-18"
-     y="7"
-     rx="6"
-     ry="6"
+     width="10"
+     height="10"
+     x="-12.5"
+     y="3"
+     rx="5"
+     ry="5"
      transform="scale(-1,1)" />
 </svg>

@@ -3,23 +3,26 @@
 @import url("gtk-version.css");
 @import url("titlebar-dark.css");
 
-@define-color window_bg_color mix(#333,@accent_color,0.05);
-@define-color window_fg_color mix(white,@window_bg_color,0.2);
+@define-color window_bg_color mix(#323232,@accent_bg_color,0.08);
+@define-color window_fg_color shade(@accent_bg_color,1.2);
 
-@define-color altbar_bg_color @window_bg_color;
+@define-color altbar_bg_color shade(@window_bg_color,0.9);
 
-@define-color view_bg_color shade(@window_bg_color,1.2);
+@define-color view_bg_color shade(@window_bg_color,1.15);
 @define-color view_fg_color @window_fg_color;
 
-@define-color accent_bg_color mix(@accent_color,white,0.5);
+@define-color accent_bg_color mix(@accent_color,white,0.6);
 @define-color accent_fg_color black;
 
-@define-color borders mix(white,@window_bg_color,0.8);
-@define-color transparent_borders alpha(white,0.2);
+@define-color borders mix(black,@window_bg_color,0.5);
+@define-color transparent_borders @borders;
 
 @define-color shadow alpha(black,0.5);
-@define-color button_shadow alpha(black,0.1);
+@define-color button_shadow alpha(black,0.3);
 @define-color menu_shadow alpha(black,0.1);
+
+@define-color button_highlight alpha(white,0.15);
+@define-color text_highlight alpha(black,0.5);
 
 @define-color destructive_bg_color mix(@red_2,white,0.15);
 @define-color destructive_fg_color white;
@@ -36,3 +39,46 @@
 @define-color error_bg_color @destructive_bg_color;
 @define-color error_fg_color @destructive_fg_color;
 @define-color error_color @destructive_bg_color;
+
+button,
+entry,
+spinbutton:not(.vertical),
+.org-gnome-Calendar .titlebar .text-button,
+.nautilus-window .linked entry ~ .image-button:not(:hover):not(:checked):not(:active):not(.model),
+.nautilus-window .search + .toggle.popup,
+headerbar .linked entry ~ .image-button,
+.titlebar .linked entry ~ .image-button,
+headerbar .linked.raised button,
+headerbar .linked button:not(:only-child),
+headerbar > .stack-switcher.linked > button,
+.titlebar .linked.raised button,
+.titlebar .linked button:not(:only-child),
+.titlebar > .stack-switcher.linked > button,
+headerbar button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled),
+.titlebar button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled),
+headerbar viewswitcher button.radio:not(.suggested-action):not(.destructive-action),
+.titlebar viewswitcher button.radio:not(.suggested-action):not(.destructive-action),
+headerbar .linked button:not(.titlebutton):not(.suggested-action):not(.destructive-action),
+.titlebar .linked button:not(.titlebutton):not(.suggested-action):not(.destructive-action),
+headerbar viewswitcher button.flat:not(.suggested-action):not(.destructive),
+.titlebar viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action),
+check:checked,
+check:indeterminate,
+radio:checked,
+radio:indeterminate,
+switch slider,
+switch,
+progressbar trough,
+scale fill,
+scale trough,
+progressbar progress,
+scale highlight,
+levelbar block,
+button.suggested-action,
+button.destructive-action
+{ background-clip: border-box;}
+
+headerbar button.suggested-action label,headerbar button.suggested-action image, button.suggested-action
+,
+headerbar button.destructive-action label, headerbar button.destructive-action image, button.destructive-action
+{}
