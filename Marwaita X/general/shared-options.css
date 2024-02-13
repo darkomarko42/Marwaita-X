@@ -1,0 +1,161 @@
+@define-color accent_color #0f6ee3;
+@define-color headerbar_bg_color mix(@window_bg_color,@window_fg_color,0.2);
+@define-color headerbar_fg_color @window_fg_color;
+@define-color sidebar_bg_color shade(@window_bg_color,0.9);
+@define-color sidebar_backdrop_color shade(@window_bg_color,0.95);
+@define-color shade_color mix(@window_bg_color,@window_fg_color,0.2);
+@define-color transparent_border alpha(currentcolor,0.2);
+@define-color button_bg_color alpha(currentColor,0.15);
+@define-color button_headerbar_bg_color @button_bg_color;
+@define-color shadow_color alpha(black,0.3);
+@define-color border_color @shade_color;
+
+@define-color destructive_color #e3220f;
+@define-color success_color #2a8941;
+@define-color warning_color #d96f00;
+
+* {background-origin: border-box;}
+
+/* this fix the size of comboboxes */
+combobox button cellview { padding: 0px 4px; min-height: 16px;}
+combobox button{ padding: 0;}
+
+button label{ padding: 0 8px;}
+
+.titlebar button box,
+toolbar button box{margin: -4px;}
+
+check,
+treeview.view check:selected:focus,
+treeview.view check:selected
+{ border-radius: 4px; }
+
+scale.color slider{border: 4px solid white; background-color: transparent; min-height: 0px; min-width: 0px; box-shadow: inset 0 0 0 1px alpha(black,0.2), 0 0 0 1px @transparent_border; border-radius: 6px;}
+
+scale.vertical.color slider{padding: 4px 6px;}
+scale.horizontal.color slider{padding: 6px 4px;}
+
+scale:hover:not(.color) slider,
+scale.marks-after:not(.color) slider,
+scale.marks-before:not(.color) slider{
+	transition: all 150ms ease-in;
+    background-color: @accent_bg_color;
+    border: 1px solid transparent;
+    background-image: none;
+	box-shadow: none;
+}
+
+/* Tooltips */
+
+tooltip { padding: 6px 10px; border-radius: 6px; box-shadow: none; }
+
+tooltip.background { background-color: alpha(black, 0.8); background-clip: padding-box; border: 1px solid alpha(white, 0.1); color: white; }
+
+tooltip > box { border-spacing: 6px; }
+
+/* OSD accent */
+
+.titlebar scale trough,
+.titlebar progressbar trough,
+headerbar scale trough,
+headerbar progressbar trough,
+infobar progressbar trough,
+.drop-shadow scale trough,
+.drop-shadow progressbar trough,
+.raven scale trough,
+.osd progressbar trough,
+progressbar.osd trough,
+.osd scale trough,
+scale .osd trough,
+.osd progressbar > trough,
+.osd scale > trough { background-color: alpha(currentcolor,0.2); }
+
+.budgie-panel separator,
+.raven scale highlight,
+.titlebar scale highlight,
+.titlebar progressbar progress,
+.titlebar scale.marks-after slider,
+.titlebar scale.marks-before slider,
+headerbar scale highlight,
+headerbar progressbar progress,
+headerbar scale.marks-after slider,
+headerbar scale.marks-before slider,
+infobar scale highlight,
+infobar progressbar progress,
+infobar scale.marks-after slider,
+infobar scale.marks-before slider,
+.drop-shadow scale highlight,
+.drop-shadow progressbar progress,
+.drop-shadow scale.marks-after slider,
+.drop-shadow scale.marks-before slider,
+.osd scale highlight,
+.titlebar scale:hover slider,
+headerbar scale:hover slider,
+infobar scale:hover slider,
+.drop-shadow scale:hover slider,
+.osd scale:hover slider,
+.raven scale:hover slider,
+.osd scale fill,
+scale .osd fill,
+.osd progressbar progress,
+progressbar.osd progress,
+.osd scale > trough > highlight,
+.osd progressbar > trough > progress,
+.osd scale:hover:not(.color) slider,
+.osd check:checked,
+.osd check:indeterminate,
+.osd radio:checked,
+.osd radio:indeterminate
+{ background-color: currentcolor; color: inherit; border-color: transparent; background-clip: border-box;}
+
+/* Accent */
+
+treeview.view check:checked:selected:focus,
+treeview.view check:checked:selected,
+treeview.view radio:checked:selected:focus,
+treeview.view radio:checked:selected,
+check.view:checked:selected,
+radio.view:checked:selected,
+check.view:checked:selected:focus,
+radio.view:checked:selected:focus { color: @accent_fg_color; background-color: @accent_bg_color; border-color: transparent; background-clip: border-box; }
+
+/* accent selections and others */
+
+headerbar entry selection, .titlebar entry selection,.view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection,iconview text selection:focus, iconview text selection, entry selection,spinbutton:not(.vertical) selection, selection,selection:focus-within
+{background-color: @accent_bg_color;}
+
+headerbar entry selection, .titlebar entry selection,.view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, textview text selection:focus, textview text selection, .view text selection:focus, .view text selection,iconview text selection:focus, iconview text selection,entry selection,spinbutton:not(.vertical) selection,selection,selection:focus-within
+{color: @accent_fg_color;}
+
+/* accent list and others */
+
+.view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, iconview:selected:focus, iconview:selected,  flowbox flowboxchild:selected, .menuitem.button.flat:selected, treeview.view:selected:focus, treeview.view:selected, calendar:selected,treeview.view:selected.chromium,treeview.view:selected:focus.chromium, .thunar treeview.view:selected,.thunar treeview.view:selected:hover,.thunar treeview.view:selected:focus
+{ background-image: image(alpha(@window_fg_color,0.15)); }
+
+label:selected, .selection-mode button.titlebutton, .view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected,  iconview:selected:focus, iconview:selected, flowbox flowboxchild:selected, .menuitem.button.flat:selected,  treeview.view:selected:focus, treeview.view:selected, calendar:selected, treeview.view:selected.chromium, treeview.view:selected:focus.chromium,.thunar treeview.view:selected,.thunar treeview.view:selected:hover,.thunar treeview.view:selected:focus{ color: @window_fg_color; }
+
+/* Infobars */
+
+infobar label{font-weight: bold;}
+
+infobar { border-style: none; -gtk-icon-style: symbolic; }
+
+infobar:not(.info):not(.warning):not(.error):not(.question)
+{background-color: transparent;}
+
+infobar.info,
+infobar.warning,
+infobar.question,
+infobar.error{
+    background-color: mix(currentcolor,@window_bg_color,0.8);
+    box-shadow: inset 0 0 0 1px alpha(currentcolor,0.4), inset 6px 0 currentcolor;
+}
+
+infobar.info > label, infobar.info, infobar.info button {color: @success_bg_color;}
+infobar.warning > label, infobar.warning, infobar.warning button {color: @warning_bg_color;}
+infobar.question > label, infobar.question, infobar.question button{color: @accent_bg_color;}
+infobar.error > label, infobar.error, infobar.error button {color: @error_bg_color;}
+
+infobar label:disabled{color: alpha(currentcolor,0.5);}
+
+infobar .close { border-radius: 50%; }

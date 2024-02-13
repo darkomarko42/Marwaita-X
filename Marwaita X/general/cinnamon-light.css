@@ -96,7 +96,7 @@ StButton.notification-applet-padding,
 .overview-empty-placeholder
 {padding: 8px;}
 
-.popup-menu-item{padding: 6px 20px;}
+.popup-menu-item{padding: 4px 16px;}
 
 .modal-dialog { padding: 20px; }
 
@@ -133,7 +133,7 @@ StButton.notification-applet-padding,
 .sound-player StBoxLayout,
 .popup-menu-item {  spacing: 1em;}
 
-.popup-menu-content{ padding: 6px 0px;}
+.popup-menu-content,
 
 .calendar-today-home-button,
 .calendar-today-home-button-enabled,
@@ -208,11 +208,10 @@ StButton:checked.radiobutton,
 
 #notification,
 .menu #notification,
-.popup-sub-menu,
-.menu-favorites-box
+.menu
 {background-color: #fff; /*use base color*/}
 
-.menu,
+.menu-favorites-box,
 .popup-combo-menu,
 .modal-dialog,
 .switcher-list,
@@ -231,7 +230,7 @@ StButton:checked.radiobutton,
 .window-close:checked,
 .overview-empty-placeholder,
 .grouped-window-list-thumbnail-menu
-{background-color: #ECF4FD; /*use bg color*/}
+{background-color: #e3e8ee; /*use bg color*/}
 
 StEntry,
 StButton,
@@ -248,7 +247,7 @@ StButton:hover,
 #notification StButton.notification-icon-button,
 .popup-menu #notification StButton.notification-button,
 .popup-menu #notification StButton.notification-icon-button
-{ background-color: #C4CFDC; /*use button color*/}
+{ background-color: #c1c8d1; /*use button color*/}
 
 StButton:active,
 StButton:checked,
@@ -274,7 +273,7 @@ StButton:checked,
 #notification StButton.notification-icon-button:checked,
 .popup-menu #notification StButton.notification-button:checked,
 .popup-menu #notification StButton.notification-icon-button:checked
-{ background-color: #B4C0CE; /*use button active color*/}
+{ background-color: #848f9b; /*use button active color*/}
 
 .popup-menu-item:active,
 .popup-submenu-menu-item:open,
@@ -285,7 +284,8 @@ StButton:checked,
 .osd-window .level,
 .menu StButton:active,
 .menu StButton:selected,
-.calendar-event-button:hover
+.calendar-event-button:hover,
+.popup-sub-menu
 { background-color: rgba(0,0,0, 0.1); box-shadow: none;}
 
 .applet-cornerbar,
@@ -403,10 +403,8 @@ StEntry,
 {border: 1px solid;}
 
 .menu-selected-app-box,
-.panel-bottom,
-.popup-sub-menu{border-top: 1px solid;}
-.panel-top,
-.popup-sub-menu{border-bottom: 1px solid;}
+.panel-bottom{border-top: 1px solid;}
+.panel-top{border-bottom: 1px solid;}
 .panel-left{border-right: 1px solid;}
 .panel-right{border-left: 1px solid;}
 
@@ -425,8 +423,7 @@ StEntry,
 .panel-bottom,
 .panel-top,
 .panel-left,
-.panel-right,
-.popup-sub-menu
+.panel-right
 {border-color: rgba(0,0,0, 0.2);}
 
 .popup-separator-menu-item,
@@ -437,14 +434,14 @@ StEntry,
 
 /* Border Radius */
 
-.popup-menu-item,
+.popup-menu-item{ border-radius: 6px; }
 
-.popup-submenu-menu-item:open,
-
-.popup-sub-menu .popup-menu-item,
+.popup-submenu-menu-item:open{ border-radius: 6px 6px 0 0 ; }
 
 .popup-sub-menu,
-.popup-sub-menu .popup-menu-item:last-child,
+.popup-sub-menu .popup-menu-item:last-child{ border-radius: 0 0 6px 6px; }
+
+.popup-sub-menu .popup-menu-item,
 .expo-background
 { border-radius: 0px; }
 
@@ -518,10 +515,10 @@ StScrollBar StButton:checked,
 /* SVG */
 
 .workspace-close-button,
-.window-close { background-image: url("../general/close-window.svg"); height: 32px; width: 32px;}
+.window-close { background-image: url("../general/assets/close-window.svg"); height: 32px; width: 32px;}
 
 .workspace-add-button{
-    background-image: url("../general/add-workspace.svg");
+    background-image: url("../general/assets/add-workspace.svg");
 	height: 200px;
 	width: 48px;
 	transition-duration: 300;
@@ -544,9 +541,9 @@ StEntry.expo-workspaces-name-entry {
 }
 
 .calendar-change-month-back,
-.calendar-change-month-forward:rtl{background-image: url("../general/calendar-arrow-left.svg");}
+.calendar-change-month-forward:rtl{background-image: url("../general/assets/calendar-arrow-left.svg");}
 .calendar-change-month-back:rtl,
-.calendar-change-month-forward {background-image: url("../general/calendar-arrow-right.svg");}
+.calendar-change-month-forward {background-image: url("../general/assets/calendar-arrow-right.svg");}
 
 .calendar-day-event-dot {
 	margin: 2px;
@@ -558,9 +555,9 @@ StEntry.expo-workspaces-name-entry {
 .ripple-box {
 	width: 104px;
 	height: 104px;
-	background-image: url("../general/corner-ripple.svg");
+	background-image: url("../general/assets/corner-ripple.svg");
 }
-.ripple-box:rtl { background-image: url("../general/corner-ripple.svg"); }
+.ripple-box:rtl { background-image: url("../general/assets/corner-ripple.svg"); }
 
 /* Check Boxes */
 .check-box CinnamonGenericContainer {
@@ -573,11 +570,11 @@ StEntry.expo-workspaces-name-entry {
 .check-box:focus StBin {
     width: 16px;
     height: 16px;
-    background-image: url("../general/checkbox-off.svg");
+    background-image: url("../general/assets/checkbox-off.svg");
 }
 
 .check-box:checked StBin,
-.check-box:focus:checked StBin{ background-image: url("../general/checkbox-on.svg"); }
+.check-box:focus:checked StBin{ background-image: url("../general/assets/checkbox-on.svg"); }
 
 .check-box StLabel {  font-weight: normal; }
 
@@ -591,12 +588,12 @@ StEntry.expo-workspaces-name-entry {
 .radiobutton:focus StBin {
     width: 16px;
     height: 16px;
-    background-image: url("../general/radiobutton-off.svg");
+    background-image: url("../general/assets/radiobutton-off.svg");
     border-radius: 9999px;
 }
 
 .radiobutton:checked StBin,
-.radiobutton:focus:checked StBin { background-image: url("../general/radiobutton-on.svg"); }
+.radiobutton:focus:checked StBin { background-image: url("../general/assets/radiobutton-on.svg"); }
 
 .radiobutton StLabel {
     padding-top: 4px;
@@ -607,11 +604,11 @@ StEntry.expo-workspaces-name-entry {
 .toggle-switch-intl {
     width: 32px;
     height: 16px;
-    background-image: url("../general/toggle-off.svg");
+    background-image: url("../general/assets/toggle-off.svg");
 }
 
 .toggle-switch-us:checked,
-.toggle-switch-intl:checked{ background-image: url("../general/toggle-on.svg"); }
+.toggle-switch-intl:checked{ background-image: url("../general/assets/toggle-on.svg"); }
 
 .tile-preview,
 .tile-hud {	background-color: rgba(100,100,100, 0.3); border: 1px solid rgba(100,100,100, 0.5);}
