@@ -1,21 +1,26 @@
-@define-color accent_bg_color shade(@accent_color,1.5);
-@define-color accent_fg_color black;
+@define-color accent_bg_color @accent_color;
+@define-color accent_fg_color white;
 
-@define-color destructive_bg_color mix(@destructive_color,white,0.4);
+@define-color headerbar_bg_color shade(@window_bg_color,0.85);
+
+@define-color destructive_bg_color @destructive_color;
 @define-color destructive_fg_color white;
 
-@define-color success_bg_color mix(@success_color,white,0.4);
+@define-color success_bg_color @success_color;
 @define-color success_fg_color white;
 
-@define-color warning_bg_color mix(@warning_color,white,0.4);
+@define-color warning_bg_color @warning_color;
 @define-color warning_fg_color black;
+
+@define-color question_bg_color @question_color;
+@define-color question_fg_color white;
 
 @define-color error_bg_color @destructive_bg_color;
 @define-color error_fg_color white;
 @define-color error_color @destructive_bg_color;
 
-@define-color window_bg_color mix(@accent_bg_color,#333,0.95);
-@define-color window_fg_color mix(@accent_bg_color,white,0.8);
+@define-color window_bg_color mix(@accent_bg_color,#eee,0.95);
+@define-color window_fg_color mix(@accent_bg_color,black,0.8);
 @define-color view_bg_color shade(@window_bg_color,1.2);
 @define-color view_fg_color @window_fg_color;
 
@@ -27,9 +32,13 @@
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_shade_color @shade_color;
 
+@define-color shadow_color alpha(black,0.3);
+@define-color border_color mix(@window_bg_color,black,0.2);
+@define-color transparent_border alpha(black,0.2);
+
 @define-color card_bg_color @view_bg_color;
 @define-color card_fg_color @view_fg_color;
-@define-color card_shade_color @border_color;
+@define-color card_shade_color @shade_color;
 
 @define-color dialog_bg_color @window_bg_color;
 @define-color dialog_fg_color @window_fg_color;
@@ -40,6 +49,6 @@
 @define-color thumbnail_bg_color @view_bg_color;
 @define-color thumbnail_fg_color @view_fg_color;
 
-@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
-@define-color incognito_bg_color #1c2438;
-@define-color new_title_bg_color #303030;
+@define-color scrollbar_outline_color white;
+@define-color incognito_bg_color #d7e3f0;
+@define-color new_title_bg_color #ffffff;
